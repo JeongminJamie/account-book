@@ -1,0 +1,60 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid;
+}
+
+.name__label,
+.price__label,
+.type__label,
+.purchase-date__label,
+.memo__label,
+.repurchase__label {
+  display: inline-block;
+  text-align: right;
+  width: 100px;
+  margin-right: 15px;
+}
+
+#purchase-date {
+  width: 142px;
+}
+
+.memo__label {
+  margin-right: 0;
+  margin-left: 165px;
+  width: 30px;
+}
+
+.memo__checkbox {
+  margin-left: 14px;
+  margin-right: 10px;
+}
+
+.memo__checkbox-input {
+  margin-left: 10px;
+}
+
+.repurchase__label {
+  width: 75px;
+  margin-right: 0px;
+  text-align: left;
+  margin-left: 12px;
+}
+
+.do-repurchase-input {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.dont-repurchase-input {
+  margin-left: 10px;
+  margin-right: 10px;
+}
