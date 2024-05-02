@@ -1,0 +1,11 @@
+.product__filters-container {
+  display: flex;
+  flex-direction: row;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}

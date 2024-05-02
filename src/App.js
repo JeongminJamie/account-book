@@ -1,11 +1,15 @@
 // import './App.css';
 
-import ProductForm from "./ProductForm";
+import Filter from "./Filter/ProductFilters";
+import ProductForm from "./Form/ProductForm";
+import ProductList from "./List/ProductList";
 
 function App() {
   return (
     <>
       <ProductForm />
+      <Filter />
+      <ProductList />
     </>
   );
 }
