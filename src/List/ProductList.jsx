@@ -2,11 +2,19 @@ import React from "react";
 import ProductListItem from "./ProductListItem";
 import "./ProductList.css";
 
-const ProductList = () => {
+const ProductList = ({ productData }) => {
   return (
     <div className="product__list-container">
-      <ProductListItem />
-      <ProductListItem />
+      {productData.map((productItem) => (
+        <ProductListItem
+          date={productItem.date}
+          name={productItem.name}
+          type={productItem.type}
+          memo={productItem.memo}
+          repurchase={productItem.repurchase}
+          price={productItem.price}
+        />
+      ))}
     </div>
   );
 };
