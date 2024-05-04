@@ -2,7 +2,6 @@ import React from "react";
 import "./ProductListItem.css";
 
 const ProductListItem = ({ date, name, type, memo, repurchase, price }) => {
-  console.log("date:", date);
   return (
     <div className="product__items-container">
       <div className="product__date">{date}</div>

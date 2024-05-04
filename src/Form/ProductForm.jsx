@@ -6,8 +6,8 @@ const ProductForm = ({ addProductData }) => {
   const [productObject, setProductObject] = useState({
     name: "",
     price: 0,
-    type: "",
-    date: new Date(),
+    type: "식료품",
+    date: null,
     memo: "",
     repurchase: null,
     noRepurchase: null,
@@ -21,21 +21,18 @@ const ProductForm = ({ addProductData }) => {
     e.preventDefault();
 
     addProductData(productObject);
-    console.log(productObject);
 
     //reset the inputs after submission
     setProductObject({
       name: "",
       price: 0,
-      type: "",
-      date: new Date(),
+      type: "식료품",
+      date: null,
       memo: "",
       repurchase: null,
       noRepurchase: null,
     });
     setMemoChecked(false);
-    // setRepurchaseChecked(false);
-    // setNoRepurchaseChecked(false);
   };
 
   //product name
