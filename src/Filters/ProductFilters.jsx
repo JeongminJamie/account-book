@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import "./ProductFilters.css";
 
-const ProductFilters = ({ selectedType, whenTypeSelected }) => {
-  const [selectedRange, setSelectedRange] = useState();
-
+const ProductFilters = ({
+  selectedType,
+  whenTypeSelected,
+  selectedRange,
+  whenRangeSelected,
+}) => {
   const typeSelectionHandler = (e) => {
     whenTypeSelected(e.target.value);
   };
-  const rangeSelectionHandler = () => {};
+  const rangeSelectionHandler = (e) => {
+    whenRangeSelected(e.target.value);
+  };
   const startDateHandler = () => {};
   const endDateHandler = () => {};
   return (
