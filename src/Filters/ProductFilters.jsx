@@ -26,10 +26,12 @@ const ProductFilters = ({
   const returnBtnHandler = () => {
     setFilterChanged(false);
   };
+
   return (
     <div className="product__filters-container">
       <div>
         <select id="type" value={selectedType} onChange={typeSelectionHandler}>
+          <option selected>유형 필터</option>
           <option value="식료품">식료품</option>
           <option value="의류">의류</option>
           <option value="가전 제품">가전 제품</option>
@@ -41,6 +43,7 @@ const ProductFilters = ({
           value={selectedRange}
           onChange={rangeSelectionHandler}
         >
+          <option selected>정렬 기준</option>
           <option value="가격 높은 순">가격 높은 순</option>
           <option value="가격 낮은 순">가격 낮은 순</option>
           <option value="최신 순">최신 순</option>

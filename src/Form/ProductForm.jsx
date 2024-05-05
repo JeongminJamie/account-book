@@ -7,7 +7,7 @@ const ProductForm = ({ addProductData }) => {
     name: "",
     price: 0,
     type: "식료품",
-    date: new Date(),
+    date: "",
     memo: "",
     repurchase: null,
     noRepurchase: null,
@@ -27,7 +27,7 @@ const ProductForm = ({ addProductData }) => {
       name: "",
       price: 0,
       type: "식료품",
-      date: new Date(),
+      date: "",
       memo: "",
       repurchase: null,
       noRepurchase: null,
@@ -105,6 +105,7 @@ const ProductForm = ({ addProductData }) => {
           type="text"
           value={productObject.name}
           onChange={nameInputHandler}
+          required
         />
       </div>
       <div className="price__input">
@@ -113,8 +114,10 @@ const ProductForm = ({ addProductData }) => {
         </label>
         <input
           id="price"
+          type="number"
           value={productObject.price}
           onChange={priceInputHandler}
+          required
         />
       </div>
       <div className="type__input">
@@ -135,7 +138,12 @@ const ProductForm = ({ addProductData }) => {
         <label htmlFor="purchase-date" className="purchase-date__label">
           구입 날짜
         </label>
-        <input id="purchase-date" type="date" onChange={dateInputHandler} />
+        <input
+          id="purchase-date"
+          type="date"
+          onChange={dateInputHandler}
+          required
+        />
       </div>
       <div className="memo__input">
         <label className="memo__label">메모</label>
