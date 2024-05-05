@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <ProductForm addProductData={addProductData} />
-      <ProductList productData={productData} />
+      <ProductList productData={productData}/>
     </>
   );
 }

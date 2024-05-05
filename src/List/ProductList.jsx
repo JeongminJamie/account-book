@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ProductListItem from "./ProductListItem";
 import "./ProductList.css";
 import ProductFilters from "../Filters/ProductFilters";
@@ -7,43 +7,63 @@ const ProductList = ({ productData }) => {
   const [filterChanged, setFilterChanged] = useState(false);
   const [selectedType, setSelectedType] = useState("");
   const [selectedRange, setSelectedRange] = useState();
+  const [selectedStartDate, setSelectedStartDate] = useState();
+  const [selectedEndDate, setSelectedEndDate] = useState();
 
-  let filteredData = [];
+  let filteredData = [...productData];
 
+  //type filtered
   const whenTypeSelected = (type) => {
     setFilterChanged(true);
     setSelectedType(type);
   };
-
   if (selectedType.length > 0) {
     filteredData = productData.filter((item) => item.type === selectedType);
   }
 
+  //range filtered
   const whenRangeSelected = (range) => {
     setFilterChanged(true);
     setSelectedRange(range);
   };
-
-  const filterByRange = () => {
-    if (filterChanged) {
-      if (selectedRange === "가격 높은 순") {
-        filteredData = filteredData.sort((a, b) => b.price - a.price);
-      } else if (selectedRange === "가격 낮은 순") {
-        filteredData = filteredData.sort((a, b) => a.price - b.price);
-      } else if (selectedRange === "최신 순") {
-      } else {
-      }
-    } else {
-      if (selectedRange === "가격 높은 순") {
-        filteredData = productData.sort((a, b) => b.price - a.price);
-      } else if (selectedRange === "가격 낮은 순") {
-        filteredData = productData.sort((a, b) => a.price - b.price);
-      } else if (selectedRange === "최신 순") {
-      } else {
-      }
+  if (selectedRange) {
+    switch (selectedRange) {
+      case "가격 높은 순":
+        filteredData.sort((a, b) => b.price - a.price);
+        break;
+      case "가격 낮은 순":
+        filteredData.sort((a, b) => a.price - b.price);
+        break;
+      case "최신 순":
+        filteredData.sort((a, b) => new Date(a.date) - new Date(b.date));
+        break;
+      case "오래된 순":
+        filteredData.sort((a, b) => new Date(b.date) - new Date(a.date));
+        break;
     }
+  }
+
+  //start date filtered
+  const whenStartDateSelected = (startDate) => {
+    setFilterChanged(true);
+    setSelectedStartDate(startDate);
   };
-  filterByRange();
+  if (selectedStartDate) {
+    filteredData = filteredData.filter(
+      (item) => new Date(item.date) >= new Date(selectedStartDate)
+    );
+  }
+
+  //end date filtered
+  const whenEndDateSelected = (endDate) => {
+    setFilterChanged(true);
+    setSelectedEndDate(endDate);
+  };
+  if (selectedEndDate) {
+    filteredData = filteredData.filter(
+      (item) => new Date(item.date) <= new Date(selectedEndDate)
+    );
+  }
 
   return (
     <>
@@ -52,6 +72,9 @@ const ProductList = ({ productData }) => {
         whenTypeSelected={whenTypeSelected}
         selectedRange={selectedRange}
         whenRangeSelected={whenRangeSelected}
+        whenStartDateSelected={whenStartDateSelected}
+        whenEndDateSelected={whenEndDateSelected}
+        setFilterChanged={setFilterChanged}
       />
       <div className="product__list-container">
         {!filterChanged ? (

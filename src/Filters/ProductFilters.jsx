@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ProductFilters.css";
 
 const ProductFilters = ({
@@ -6,6 +6,9 @@ const ProductFilters = ({
   whenTypeSelected,
   selectedRange,
   whenRangeSelected,
+  whenStartDateSelected,
+  whenEndDateSelected,
+  setFilterChanged,
 }) => {
   const typeSelectionHandler = (e) => {
     whenTypeSelected(e.target.value);
@@ -13,8 +16,16 @@ const ProductFilters = ({
   const rangeSelectionHandler = (e) => {
     whenRangeSelected(e.target.value);
   };
-  const startDateHandler = () => {};
-  const endDateHandler = () => {};
+  const startDateHandler = (e) => {
+    whenStartDateSelected(e.target.value);
+  };
+  const endDateHandler = (e) => {
+    whenEndDateSelected(e.target.value);
+  };
+
+  const returnBtnHandler = () => {
+    setFilterChanged(false);
+  };
   return (
     <div className="product__filters-container">
       <div>
@@ -44,6 +55,9 @@ const ProductFilters = ({
         <label>끝 기간</label>
         <input id="end-date" type="date" onChange={endDateHandler} />
       </div>
+      <button className="return-button" onClick={returnBtnHandler}>
+        되돌리기
+      </button>
     </div>
   );
 };
