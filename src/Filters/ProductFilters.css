@@ -1,0 +1,21 @@
+.product__filters-container {
+  display: flex;
+  flex-direction: row;
+  width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+label {
+  font-size: 13px;
+  margin-right: 5px;
+}
+
+.return-button {
+  font-size: 12px;
+  width: 60px;
+}
